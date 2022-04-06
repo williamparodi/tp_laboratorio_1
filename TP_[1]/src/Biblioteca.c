@@ -43,38 +43,33 @@ int ingresarInt(char mensaje[])
     return numeroInt;
 }
 
-float calcularPrecioPorKilometro(float precio,int kilometro,float *precioPorKilometro)
+float calcularPrecioPorKilometro(float precio,int kilometro)
 {
-	float auxPrecioPorKilometro;
+	float precioPorKilometro;
 
 	if(kilometro != 0)
 	{
-		auxPrecioPorKilometro = ((float)precio / kilometro);
-		*precioPorKilometro = auxPrecioPorKilometro;
+		precioPorKilometro = ((float)precio / kilometro);
 	}
 
-	return 0;
+	return precioPorKilometro;
 }
 
-float sacarDescuento(float precio,int descuento,float *precioConDescuento)
+float sacarDescuento(float precio,int descuento)
 {
-	 float auxPrecioConDescuento;
+	 float precioConDescuento;
 
 	 descuento = ((float) precio * descuento) / 100;
-	 auxPrecioConDescuento = precio - descuento;
-	 *precioConDescuento = auxPrecioConDescuento;
+	 precioConDescuento = precio - descuento;
 
-	 return 0;
-
+	 return precioConDescuento;
 }
 
-float sacarInteres(float precio,int interes,float *precioConInteres)
+float sacarInteres(float precio,int interes)
 {
-	float auxPrecioConInteres;
-
+	float precioConInteres;
 	interes = ((float) precio * interes) / 100;
-	auxPrecioConInteres = precio + interes;
-	*precioConInteres = auxPrecioConInteres;
+	precioConInteres = precio + interes;
 
-	return 0;
+	return precioConInteres;
 }

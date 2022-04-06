@@ -41,13 +41,20 @@ int main(void)
 				precioLatam = ingresarInt("Ingrese precio de vuelo Latam: ");
 				break;
 			case 3:
-				sacarDescuento(precioAerolineas,descuento,&precioConDebitoAerolineas);
-				sacarDescuento(precioLatam,descuento,&precioConDebitoLatam);
-				sacarInteres(precioAerolineas,interes,&precioConTarjetaAerolineas);
-				sacarInteres(precioLatam,interes,&precioConTarjetaLatam);
-				calcularPrecioPorKilometro(precioAerolineas,kilometros,&precioPorKilometroAerolineas);
-				calcularPrecioPorKilometro(precioLatam,kilometros,&precioPorKilometroLatam);
+				precioConDebitoAerolineas = sacarDescuento(precioAerolineas,descuento);
+				precioConDebitoLatam = sacarDescuento(precioLatam,descuento);
+				precioConTarjetaAerolineas = sacarInteres(precioAerolineas,interes);
+				precioConTarjetaLatam = sacarInteres(precioLatam,interes);
+				precioPorKilometroAerolineas = calcularPrecioPorKilometro(precioAerolineas,kilometros);
+				precioPorKilometroLatam = calcularPrecioPorKilometro(precioLatam,kilometros);
+				break;
 				//FALta BTC / Diferencia de precios /
+			case 4:
+				printf("Precio con debito: %.2f\n",precioConDebitoAerolineas);
+				printf("Precio con debito: %.2f\n",precioConDebitoLatam);
+				printf("Precio con tarjeta: %.2f\n",precioConTarjetaAerolineas);
+				printf("Precio con tarjeta: %.2f\n",precioConTarjetaLatam);
+				break;
 			case 6:
 				seguir = 'n';
 		}

@@ -10,8 +10,8 @@
 
 int elegirOpcion(int kilometros,float precioAerolineas,float precioLatam);
 int ingresarInt(char mensaje[]);
-float calcularPrecioPorKilometro(float precio,int kilometro,float *precioPorKilometro);
-float sacarDescuento(float precio,int descuento,float *precioConDescuento);
-float sacarInteres(float precio,int interes,float *precioConInteres);
+float calcularPrecioPorKilometro(float precio,int kilometro);
+float sacarDescuento(float precio,int descuento);
+float sacarInteres(float precio,int interes);
 
 #endif /* BIBLIOTECA_C_ */
