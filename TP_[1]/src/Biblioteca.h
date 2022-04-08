@@ -8,8 +8,13 @@
 #ifndef BIBLIOTECA_C_
 #define BIBLIOTECA_C_
 
+/// @param kilometros
+/// @param precioAerolineas
+/// @param precioLatam
+/// @return
 int elegirOpcion(int kilometros,float precioAerolineas,float precioLatam);
-int ingresarInt(char mensaje[]);
+
+
 float calcularPrecioPorKilometro(float precio,int kilometro,float *precioPorKilometro);
 float sacarDescuento(float precio,int descuento,float *precioConDescuento);
 float sacarInteres(float precio,int interes,float *precioConInteres);

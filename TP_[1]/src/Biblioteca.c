@@ -33,48 +33,57 @@ int elegirOpcion(int kilometros,float precioAerolineas,float precioLatam)
 	return opcion;
 }
 
-int ingresarInt(char mensaje[])
-{
-    int numeroInt;
-
-    printf("%s",mensaje);
-    scanf("%d",&numeroInt);
-
-    return numeroInt;
-}
 
 float calcularPrecioPorKilometro(float precio,int kilometro,float *precioPorKilometro)
 {
 	float auxPrecioPorKilometro;
+    int retorno;
 
-	if(kilometro != 0)
+    retorno = -1;
+
+	if(precioPorKilometro != NULL && kilometro > 0 )
 	{
 		auxPrecioPorKilometro = ((float)precio / kilometro);
 		*precioPorKilometro = auxPrecioPorKilometro;
+		retorno = 0;
 	}
 
-	return 0;
+	return retorno;
 }
 
 float sacarDescuento(float precio,int descuento,float *precioConDescuento)
 {
 	 float auxPrecioConDescuento;
+     int retorno;
 
-	 descuento = ((float) precio * descuento) / 100;
-	 auxPrecioConDescuento = precio - descuento;
-	 *precioConDescuento = auxPrecioConDescuento;
+     retorno = -1;
 
-	 return 0;
+	 if(precioConDescuento != NULL && descuento > 0)
+	 {
+		 descuento = ((float) precio * descuento) / 100;
+		 auxPrecioConDescuento = precio - descuento;
+		 *precioConDescuento = auxPrecioConDescuento;
+		 retorno = 0;
+	 }
+
+	 return retorno;
 
 }
 
 float sacarInteres(float precio,int interes,float *precioConInteres)
 {
 	float auxPrecioConInteres;
+    int retorno;
 
-	interes = ((float) precio * interes) / 100;
-	auxPrecioConInteres = precio + interes;
-	*precioConInteres = auxPrecioConInteres;
+    retorno = -1;
 
-	return 0;
+    if(precioConInteres != NULL && interes >0)
+    {
+    	interes = ((float) precio * interes) / 100;
+    	auxPrecioConInteres = precio + interes;
+    	*precioConInteres = auxPrecioConInteres;
+    	retorno = 0;
+    }
+
+	return retorno;
 }
