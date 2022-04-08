@@ -34,25 +34,37 @@ int elegirOpcion(int kilometros,float precioAerolineas,float precioLatam)
 }
 
 
-float calcularPrecioPorKilometro(float precio,int kilometro,float *precioPorKilometro)
+float calcularPrecioPorKilometro(float precio,int kilometro)
 {
+<<<<<<< HEAD
 	float auxPrecioPorKilometro;
     int retorno;
+=======
+	float precioPorKilometro;
+>>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
 
     retorno = -1;
 
 	if(precioPorKilometro != NULL && kilometro > 0 )
 	{
+<<<<<<< HEAD
 		auxPrecioPorKilometro = ((float)precio / kilometro);
 		*precioPorKilometro = auxPrecioPorKilometro;
 		retorno = 0;
 	}
 
 	return retorno;
+=======
+		precioPorKilometro = ((float)precio / kilometro);
+	}
+
+	return precioPorKilometro;
+>>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
 }
 
-float sacarDescuento(float precio,int descuento,float *precioConDescuento)
+float sacarDescuento(float precio,int descuento)
 {
+<<<<<<< HEAD
 	 float auxPrecioConDescuento;
      int retorno;
 
@@ -67,11 +79,19 @@ float sacarDescuento(float precio,int descuento,float *precioConDescuento)
 	 }
 
 	 return retorno;
+=======
+	 float precioConDescuento;
 
+	 descuento = ((float) precio * descuento) / 100;
+	 precioConDescuento = precio - descuento;
+>>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
+
+	 return precioConDescuento;
 }
 
-float sacarInteres(float precio,int interes,float *precioConInteres)
+float sacarInteres(float precio,int interes)
 {
+<<<<<<< HEAD
 	float auxPrecioConInteres;
     int retorno;
 
@@ -86,4 +106,11 @@ float sacarInteres(float precio,int interes,float *precioConInteres)
     }
 
 	return retorno;
+=======
+	float precioConInteres;
+	interes = ((float) precio * interes) / 100;
+	precioConInteres = precio + interes;
+
+	return precioConInteres;
+>>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
 }

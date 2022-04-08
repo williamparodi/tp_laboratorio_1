@@ -65,6 +65,7 @@ int main(void)
 				}
 				break;
 			case 3:
+<<<<<<< HEAD
 				if(flagPrecios == 1 && flagKilometros == 1)
 				{
 					sacarDescuento(precioAerolineas,descuento,&precioConDebitoAerolineas);
@@ -96,6 +97,22 @@ int main(void)
 
 				break;
 				// Falta case 5 Carga forzada
+=======
+				precioConDebitoAerolineas = sacarDescuento(precioAerolineas,descuento);
+				precioConDebitoLatam = sacarDescuento(precioLatam,descuento);
+				precioConTarjetaAerolineas = sacarInteres(precioAerolineas,interes);
+				precioConTarjetaLatam = sacarInteres(precioLatam,interes);
+				precioPorKilometroAerolineas = calcularPrecioPorKilometro(precioAerolineas,kilometros);
+				precioPorKilometroLatam = calcularPrecioPorKilometro(precioLatam,kilometros);
+				break;
+				//FALta BTC / Diferencia de precios /
+			case 4:
+				printf("Precio con debito: %.2f\n",precioConDebitoAerolineas);
+				printf("Precio con debito: %.2f\n",precioConDebitoLatam);
+				printf("Precio con tarjeta: %.2f\n",precioConTarjetaAerolineas);
+				printf("Precio con tarjeta: %.2f\n",precioConTarjetaLatam);
+				break;
+>>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
 			case 6:
 				seguir = 6;
 				printf("Gracias por usar nuestro programa\n");
