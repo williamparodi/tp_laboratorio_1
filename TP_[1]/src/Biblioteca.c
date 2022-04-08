@@ -36,57 +36,26 @@ int elegirOpcion(int kilometros,float precioAerolineas,float precioLatam)
 
 float calcularPrecioPorKilometro(float precio,int kilometro)
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	float auxPrecioPorKilometro;
     int retorno;
-=======
-	float precioPorKilometro;
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
-=======
-	float precioPorKilometro;
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
-
     retorno = -1;
-=======
-	float precioPorKilometro;
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
 
 	if(precioPorKilometro != NULL && kilometro > 0 )
 	{
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 		auxPrecioPorKilometro = ((float)precio / kilometro);
 		*precioPorKilometro = auxPrecioPorKilometro;
 		retorno = 0;
 	}
 
 	return retorno;
-=======
-=======
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
-=======
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
-		precioPorKilometro = ((float)precio / kilometro);
-	}
+
 
 	return precioPorKilometro;
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
-=======
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
-=======
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
 }
 
 float sacarDescuento(float precio,int descuento)
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	 float auxPrecioConDescuento;
      int retorno;
 
@@ -101,32 +70,10 @@ float sacarDescuento(float precio,int descuento)
 	 }
 
 	 return retorno;
-=======
-=======
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
-	 float precioConDescuento;
-
-	 descuento = ((float) precio * descuento) / 100;
-	 precioConDescuento = precio - descuento;
-<<<<<<< HEAD
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
-=======
-	 float precioConDescuento;
-
-	 descuento = ((float) precio * descuento) / 100;
-	 precioConDescuento = precio - descuento;
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
-=======
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
-
-	 return precioConDescuento;
 }
 
 float sacarInteres(float precio,int interes)
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	float auxPrecioConInteres;
     int retorno;
 
@@ -141,21 +88,4 @@ float sacarInteres(float precio,int interes)
     }
 
 	return retorno;
-=======
-=======
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
-=======
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
-	float precioConInteres;
-	interes = ((float) precio * interes) / 100;
-	precioConInteres = precio + interes;
-
-	return precioConInteres;
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
-=======
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
-=======
->>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
 }
