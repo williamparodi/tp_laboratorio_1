@@ -67,6 +67,7 @@ int main(void)
 			case 3:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				if(flagPrecios == 1 && flagKilometros == 1)
 				{
 					sacarDescuento(precioAerolineas,descuento,&precioConDebitoAerolineas);
@@ -101,6 +102,8 @@ int main(void)
 =======
 =======
 >>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
+=======
+>>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
 				precioConDebitoAerolineas = sacarDescuento(precioAerolineas,descuento);
 				precioConDebitoLatam = sacarDescuento(precioLatam,descuento);
 				precioConTarjetaAerolineas = sacarInteres(precioAerolineas,interes);
@@ -116,6 +119,9 @@ int main(void)
 				printf("Precio con tarjeta: %.2f\n",precioConTarjetaLatam);
 				break;
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
+=======
 >>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
 =======
 >>>>>>> 4189bf2ce79e20d7cf139df223fc673832b89383
