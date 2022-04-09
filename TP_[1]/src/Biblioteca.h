@@ -12,13 +12,12 @@
 /// @param precioAerolineas
 /// @param precioLatam
 /// @return
-int elegirOpcion(int kilometros,float precioAerolineas,float precioLatam);
-
-
-float calcularPrecioPorKilometro(float precio,int kilometro,float *precioPorKilometro);
-float sacarDescuento(float precio,int descuento,float *precioConDescuento);
-float sacarInteres(float precio,int interes,float *precioConInteres);
-float calcularPrecioPorKilometro(float precio,int kilometro);
-
+int elegirOpcion(int kilometros,float precioAerolineas,float precioLatam,float precioDebitoAerolineas,float precioDebitoLatam,
+		float precioCreditoAerolineas,float precioCreditoLatam,float diferenciaPrecio,float precioUnitarioLatam,float precioUnitarioAerolineas);
+int calcularPrecioPorKilometro(float precio,int kilometro,float *precioPorKilometro);
+int calcularDescuento(float precio,int descuento,float *precioConDescuento);
+int calcularInteres(float precio,int interes,float *precioConInteres);
+int calcularDiferencia(float precio1,float precio2,float *diferencia);
+int calcularBitcoin(float precio,float bitcoin,float *precioBitcoin);
 
 #endif /* BIBLIOTECA_C_ */

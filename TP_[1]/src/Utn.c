@@ -69,3 +69,20 @@ int utn_getFloat(float *pNumeroIngresado,char * mensaje,char * mensajeError,int 
 	return retorno;
 }
 
+int utn_restarDosInt(int numero1,int numero2)
+{
+	int resta;
+
+	resta = numero1 - numero2;
+
+	return resta;
+}
+
+float utn_restarDosFloat(float numero1,float numero2)
+{
+	float resta;
+
+	resta = numero1 - numero2;
+
+	return resta;
+}

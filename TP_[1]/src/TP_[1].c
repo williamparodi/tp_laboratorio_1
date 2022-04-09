@@ -13,6 +13,7 @@
 #include "Biblioteca.h"
 #include "Utn.h"
 #define REINTENTOS 5
+#define BITCOIN  4606954.55
 
 int main(void)
 {
@@ -33,8 +34,11 @@ int main(void)
 	float precioConDebitoLatam;
 	float precioConTarjetaAerolineas;
 	float precioConTarjetaLatam;
+	float precioConBitCoinAerolineas;
+	float precioConBitCoinLatam;
 	float precioPorKilometroAerolineas;
 	float precioPorKilometroLatam;
+	float diferenciaDePrecio;
 
 	kilometros = 0;
 	precioAerolineas = 0;
@@ -44,21 +48,24 @@ int main(void)
 	flagKilometros = 0;
 	flagPrecios = 0;
 	flagCalculos = 0;
+	diferenciaDePrecio = 0;
 
 	do
 	{
-		switch(elegirOpcion(kilometros,precioAerolineas,precioLatam))
+		seguir = elegirOpcion(kilometros, precioAerolineas, precioLatam, precioConDebitoAerolineas, precioConDebitoLatam, precioConTarjetaAerolineas
+				,precioConTarjetaLatam, diferenciaDePrecio, precioPorKilometroLatam, precioPorKilometroAerolineas);
+		switch(seguir)
 		{
 			case 1:
-				validarKilometros = utn_getInt(&kilometros,"Ingrese los kilometros:\n","Error al ingresar los kilometros\n",1,10000,REINTENTOS);
+				validarKilometros = utn_getInt(&kilometros,"Ingrese los kilometros:\n","Error al ingresar los kilometros(viaje minimo 100K /maximo 50000 k)\n",100,50000,REINTENTOS);
 				if(validarKilometros == 0)
 				{
 					flagKilometros = 1;
 				}
 				break;
 			case 2:
-				validarPrecioAerolineas = utn_getFloat(&precioAerolineas,"Ingrese precio de vuelo Aerolineas:\n","Error al ingresar el precio\n",1,1000,REINTENTOS);
-				validarPrecioLatam = utn_getFloat(&precioLatam,"Ingrese precio de vuelo Latam:\n","Error al ingresar el precio\n",1,1000,REINTENTOS);
+				validarPrecioAerolineas = utn_getFloat(&precioAerolineas,"Ingrese precio de vuelo Aerolineas:\n","Error al ingresar el precio(minimo $1000 /maximo $10 millones)\n",1000,10000000,REINTENTOS);
+				validarPrecioLatam = utn_getFloat(&precioLatam,"Ingrese precio de vuelo Latam:\n","Error al ingresar el precio\n",1000,10000000,REINTENTOS);
 				if(validarPrecioAerolineas == 0 && validarPrecioLatam == 0)
 				{
 					flagPrecios = 1;
@@ -67,12 +74,15 @@ int main(void)
 			case 3:
 				if(flagPrecios == 1 && flagKilometros == 1)
 				{
-					sacarDescuento(precioAerolineas,descuento,&precioConDebitoAerolineas);
-					sacarDescuento(precioLatam,descuento,&precioConDebitoLatam);
-					sacarInteres(precioAerolineas,interes,&precioConTarjetaAerolineas);
-					sacarInteres(precioLatam,interes,&precioConTarjetaLatam);
+					calcularDescuento(precioAerolineas,descuento,&precioConDebitoAerolineas);
+					calcularDescuento(precioLatam,descuento,&precioConDebitoLatam);
+					calcularInteres(precioAerolineas,interes,&precioConTarjetaAerolineas);
+					calcularInteres(precioLatam,interes,&precioConTarjetaLatam);
 					calcularPrecioPorKilometro(precioAerolineas,kilometros,&precioPorKilometroAerolineas);
 					calcularPrecioPorKilometro(precioLatam,kilometros,&precioPorKilometroLatam);
+					calcularDiferencia(precioLatam,precioAerolineas,&diferenciaDePrecio);
+					calcularBitcoin(precioAerolineas,BITCOIN,&precioConBitCoinAerolineas);
+					calcularBitcoin(precioLatam,BITCOIN,&precioConBitCoinLatam);
 					flagCalculos = 1;
 					//FALta BTC / Diferencia de precios /
 				}
@@ -84,16 +94,26 @@ int main(void)
 			case 4:
 				if(flagCalculos ==1)
 				{
-					printf("Precio con debito: %.2f\n",precioConDebitoAerolineas);
-					printf("Precio con debito: %.2f\n",precioConDebitoLatam);
-					printf("Precio con tarjeta: %.2f\n",precioConTarjetaAerolineas);
-					printf("Precio con tarjeta: %.2f\n",precioConTarjetaLatam); // esto en una funcion que muestre
+					printf("Kilometros Ingresados: %d\n\n",kilometros);
+					printf("Precio Aerolineas: $%.2f\n",precioAerolineas);
+					printf("a) Precio con tarjeta de débito: $%.2f\n",precioConDebitoAerolineas);
+					printf("b) Precio con tarjeta de crédito: $%.2f\n",precioConTarjetaAerolineas);
+					printf("c) Precio pagando con bitcoin :%.2f\n",precioConBitCoinAerolineas);
+					printf("d) Precio unitario:$%.2f\n\n",precioPorKilometroAerolineas);
+					printf("Precios Latam: %.2f\n",precioLatam);
+					printf("a) Precio con tarjeta de débito:$%.2f\n",precioConDebitoLatam);
+					printf("b) Precio con tarjeta de crédito:$%.2f\n",precioConTarjetaLatam);
+					printf("c) Precio pagando con bitcoin :%.2f\n",precioConBitCoinLatam);
+					printf("d) Precio unitario:$%.2f\n",precioPorKilometroLatam);
+					printf("La diferencia de precio es:%.2f\n\n",diferenciaDePrecio);
+
 				}
 				else
 				{
 					printf("No se pueden mostrar los precios sin antes realizar los calculos\n");
 				}
-
+				break;
+			case 5:
 				break;
 				// Falta case 5 Carga forzada
 			case 6:
