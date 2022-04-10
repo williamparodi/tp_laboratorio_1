@@ -1,9 +1,4 @@
-/*
- * Inputs.c
- *
- *  Created on: 7 abr. 2022
- *      Author: Willy
- */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "Utn.h"
@@ -35,6 +30,7 @@ int utn_getInt(int *pNumeroIngresado,char * mensaje,char * mensajeError,int mini
 
 		}while(reintentos > 0);
     }
+
 	return retorno;
 }
 

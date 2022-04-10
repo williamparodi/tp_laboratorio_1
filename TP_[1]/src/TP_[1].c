@@ -1,17 +1,17 @@
 /*
  ============================================================================
  Name        : TP_[1].c
- Author      : 
+ Author      : Parodi William
  Version     :
  Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Description : Trabajo Practico 1
  ============================================================================
  */
-
 #include <stdio.h>
 #include <stdlib.h>
-#include "Biblioteca.h"
+#include "Menu.h"
 #include "Utn.h"
+#include "Calculos.h"
 #define REINTENTOS 5
 #define BITCOIN  4606954.55
 #define KM 7090
@@ -52,13 +52,10 @@ int main(void)
 	flagKilometros = 0;
 	flagPrecios = 0;
 	flagCalculos = 0;
-	diferenciaDePrecio = 0;
 
 	do
-	{   //modificar el menu y validar entrada de seguir.
-		elegirOpcion(kilometros, precioAerolineas, precioLatam, precioConDebitoAerolineas, precioConDebitoLatam, precioConTarjetaAerolineas
-				,precioConTarjetaLatam, diferenciaDePrecio, precioPorKilometroLatam, precioPorKilometroAerolineas);
-
+	{
+		mostrarMenu(kilometros,precioAerolineas, precioLatam);
 		validarSeguir = utn_getInt(&seguir,"Ingrese opcion: \n","Error al ingresar opcion \n",1,6,REINTENTOS);
 
 		if(validarSeguir == 0)
@@ -73,11 +70,15 @@ int main(void)
 					}
 					break;
 				case 2:
-					validarPrecioAerolineas = utn_getFloat(&precioAerolineas,"Ingrese precio de vuelo Aerolineas:\n","Error al ingresar el precio(minimo $1000 /maximo $10 millones)\n",1000,10000000,REINTENTOS);
+					validarPrecioAerolineas = utn_getFloat(&precioAerolineas,"Ingrese precio de vuelo Aerolineas:\n","Error al ingresar el precio(minimo $1000/maximo $10 millones)\n",1000,10000000,REINTENTOS);
 					validarPrecioLatam = utn_getFloat(&precioLatam,"Ingrese precio de vuelo Latam:\n","Error al ingresar el precio\n",1000,10000000,REINTENTOS);
 					if(validarPrecioAerolineas == 0 && validarPrecioLatam == 0)
 					{
 						flagPrecios = 1;
+					}
+					else
+					{
+						printf("Hubo un problema al cargar lo datos\n\n");
 					}
 					break;
 				case 3:
@@ -93,11 +94,10 @@ int main(void)
 						calcularBitcoin(precioAerolineas,BITCOIN,&precioConBitCoinAerolineas);
 						calcularBitcoin(precioLatam,BITCOIN,&precioConBitCoinLatam);
 						flagCalculos = 1;
-						//FALta BTC
 					}
 					else
 					{
-						printf("No se pueden hacer los calculos sin ingresar precios y kilometros\n");
+						printf("No se pueden hacer los calculos sin ingresar precios y kilometros\n\n");
 					}
 					break;
 				case 4:
@@ -110,7 +110,7 @@ int main(void)
 					}
 					else
 					{
-						printf("No se pueden mostrar los precios sin antes realizar los calculos\n");
+						printf("No se pueden mostrar los precios sin antes realizar los calculos\n\n");
 					}
 					break;
 				case 5:
@@ -129,7 +129,7 @@ int main(void)
 					break;
 				case 6:
 					seguir = 6;
-					printf("Gracias por usar nuestro programa\n");
+					printf("Gracias por usar nuestro programa de viajes!\n");
 					break;
 			}
 		}
