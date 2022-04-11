@@ -1,9 +1,9 @@
 /*
  ============================================================================
  Name        : TP_[1].c
+
  Author      : Parodi William
- Version     :
- Copyright   : Your copyright notice
+
  Description : Trabajo Practico 1
  ============================================================================
  */
@@ -13,7 +13,7 @@
 #include "Utn.h"
 #include "Calculos.h"
 #define REINTENTOS 5
-#define BITCOIN  4606954.55
+#define BITCOIN  4797893.14
 #define KM 7090
 #define PRECIOAERO 162965
 #define PRECIOLATAM  159339
@@ -63,7 +63,7 @@ int main(void)
 			switch(seguir)
 			{
 				case 1:
-					validarKilometros = utn_getInt(&kilometros,"Ingrese los kilometros:\n","Error al ingresar los kilometros(viaje minimo 100K /maximo 50000 k)\n",100,50000,REINTENTOS);
+					validarKilometros = utn_getInt(&kilometros,"Ingrese los kilometros:\n","Error al ingresar los kilometros(viaje minimo 100Km/maximo 50000Km)\n",100,50000,REINTENTOS);
 					if(validarKilometros == 0)
 					{
 						flagKilometros = 1;
@@ -71,7 +71,7 @@ int main(void)
 					break;
 				case 2:
 					validarPrecioAerolineas = utn_getFloat(&precioAerolineas,"Ingrese precio de vuelo Aerolineas:\n","Error al ingresar el precio(minimo $1000/maximo $10 millones)\n",1000,10000000,REINTENTOS);
-					validarPrecioLatam = utn_getFloat(&precioLatam,"Ingrese precio de vuelo Latam:\n","Error al ingresar el precio\n",1000,10000000,REINTENTOS);
+					validarPrecioLatam = utn_getFloat(&precioLatam,"Ingrese precio de vuelo Latam:\n","Error al ingresar el precio(minimo $1000/maximo $10 millones)\n",1000,10000000,REINTENTOS);
 					if(validarPrecioAerolineas == 0 && validarPrecioLatam == 0)
 					{
 						flagPrecios = 1;
@@ -135,9 +135,6 @@ int main(void)
 		}
 
 	}while(seguir != 6);
-
-
-
 
 	return EXIT_SUCCESS;
 }

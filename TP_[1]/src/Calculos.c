@@ -1,8 +1,3 @@
-/*
- * Calculos.c
- *
- *  Author: Parodi William
- */
 #include <stdio.h>
 #include <stdlib.h>
 #include "Calculos.h"
@@ -71,7 +66,6 @@ int calcularDiferencia(float precio1,float precio2,float *diferencia)
         if(auxdiferencia <0)
         {
     	   auxdiferencia = auxdiferencia * (float)-1;
-
     	}
 
         *diferencia = auxdiferencia;
