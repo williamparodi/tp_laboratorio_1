@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "Calculos.h"
 #include "Utn.h"
+#include "Menu.h"
 
 int calcularPrecioPorKilometro(float precio,int kilometro,float *precioPorKilometro)
 {
@@ -91,4 +92,49 @@ int calcularBitcoin(float precio,float bitcoin,float *precioBitcoin)
     return retorno;
 }
 
+int cargarForzado()
+{
+	int retorno;
+	int km;
+	float precioLatam;
+	float precioAerolineas;
+	float precioConDebitoAerolineas;
+	float precioConDebitoLatam;
+	float precioConTarjetaAerolineas;
+	float precioConTarjetaLatam;
+	float precioPorKilometroLatam;
+	float precioPorKilometroAerolineas;
+	float precioConBitCoinAerolineas;
+	float precioConBitCoinLatam;
+	float diferenciaDePrecio;
+	float bitcoin;
+	int descuento;
+	int interes;
+
+	retorno = -1;
+	km = 7090;
+	precioLatam = 159339;
+	precioAerolineas = 162965;
+	descuento = 10;
+	interes = 25;
+	bitcoin =  4797893.14;
+
+	if(!calcularDescuento(precioAerolineas,descuento,&precioConDebitoAerolineas)&&
+	   !calcularDescuento(precioLatam,descuento,&precioConDebitoLatam)&&
+	   !calcularInteres(precioAerolineas,interes,&precioConTarjetaAerolineas)&&
+	   !calcularInteres(precioLatam,interes,&precioConTarjetaLatam)&&
+	   !calcularPrecioPorKilometro(precioAerolineas,km,&precioPorKilometroAerolineas)&&
+	   !calcularPrecioPorKilometro(precioLatam,km,&precioPorKilometroLatam)&&
+	   !calcularDiferencia(precioLatam,precioAerolineas,&diferenciaDePrecio)&&
+	   !calcularBitcoin(precioAerolineas,bitcoin,&precioConBitCoinAerolineas)&&
+	   !calcularBitcoin(precioLatam,bitcoin,&precioConBitCoinLatam))
+	{
+		mostrarPrecios(km,precioAerolineas,precioLatam,precioConDebitoAerolineas,
+									precioConDebitoLatam,precioConTarjetaAerolineas,precioConTarjetaLatam,diferenciaDePrecio,
+									precioPorKilometroLatam,precioPorKilometroAerolineas,precioConBitCoinAerolineas,precioConBitCoinLatam);
+		retorno = 0;
+	}
+
+	return retorno;
+}
 

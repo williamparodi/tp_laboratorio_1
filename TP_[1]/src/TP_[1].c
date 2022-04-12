@@ -114,18 +114,14 @@ int main(void)
 					}
 					break;
 				case 5:
-					calcularDescuento(PRECIOAERO,descuento,&precioConDebitoAerolineas);
-					calcularDescuento(PRECIOLATAM,descuento,&precioConDebitoLatam);
-					calcularInteres(PRECIOAERO,interes,&precioConTarjetaAerolineas);
-					calcularInteres(PRECIOLATAM,interes,&precioConTarjetaLatam);
-					calcularPrecioPorKilometro(PRECIOAERO,KM,&precioPorKilometroAerolineas);
-					calcularPrecioPorKilometro(PRECIOLATAM,KM,&precioPorKilometroLatam);
-					calcularDiferencia(PRECIOLATAM,PRECIOAERO,&diferenciaDePrecio);
-					calcularBitcoin(PRECIOAERO,BITCOIN,&precioConBitCoinAerolineas);
-					calcularBitcoin(PRECIOLATAM,BITCOIN,&precioConBitCoinLatam);
-					mostrarPrecios(KM,PRECIOAERO,PRECIOLATAM,precioConDebitoAerolineas,
-							precioConDebitoLatam,precioConTarjetaAerolineas,precioConTarjetaLatam,diferenciaDePrecio,
-							precioPorKilometroLatam,precioPorKilometroAerolineas,precioConBitCoinAerolineas,precioConBitCoinLatam);
+					if(!cargarForzado())
+					{
+						printf("Carga Forzada exitosa!\n");
+					}
+					else
+					{
+						printf("Error al cargar los datos\n");
+					}
 					break;
 				case 6:
 					seguir = 6;
