@@ -2,7 +2,7 @@
  ============================================================================
  Name        : TP_[1].c
 
- Author      : Parodi William
+ Author      : Parodi  Jon William
 
  Description : Trabajo Practico 1
  ============================================================================
@@ -14,9 +14,6 @@
 #include "Calculos.h"
 #define REINTENTOS 5
 #define BITCOIN  4797893.14
-#define KM 7090
-#define PRECIOAERO 162965
-#define PRECIOLATAM  159339
 
 int main(void)
 {
@@ -56,7 +53,7 @@ int main(void)
 	do
 	{
 		mostrarMenu(kilometros,precioAerolineas, precioLatam);
-		validarSeguir = utn_getInt(&seguir,"Ingrese opcion: \n","Error al ingresar opcion \n",1,6,REINTENTOS);
+		validarSeguir = utn_getInt(&seguir,"Ingrese opcion:\n","Error al ingresar opcion\n",1,6,REINTENTOS);
 
 		if(validarSeguir == 0)
 		{
@@ -116,7 +113,7 @@ int main(void)
 				case 5:
 					if(!cargarForzado())
 					{
-						printf("Carga Forzada exitosa!\n");
+						printf("Carga Forzada exitosa!\n\n");
 					}
 					else
 					{

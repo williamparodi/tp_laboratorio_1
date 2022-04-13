@@ -43,6 +43,8 @@ int calcularDiferencia(float precio1,float precio2,float *diferencia);
 /// @brief Calcula el precio del bitcoin y valida el manejo del puntero y datos nulos.
 int calcularBitcoin(float precio,float bitcoin,float *precioBitcoin);
 
+/// @return retorna -1 en caso de error y 0 en caso exitoso
+/// @brief Calcula con datos pre-cargados e imprime por pantalla los precios calculados (prueba rapida)
 int cargarForzado();
 
 #endif /* CALCULOS_H_ */
