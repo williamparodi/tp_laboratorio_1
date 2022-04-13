@@ -9,9 +9,9 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-#include "Menu.h"
-#include "Utn.h"
-#include "Calculos.h"
+#include "calculos.h"
+#include "menu.h"
+#include "utn.h"
 #define REINTENTOS 5
 #define BITCOIN  4797893.14
 
@@ -102,7 +102,7 @@ int main(void)
 					{
 						mostrarPrecios(kilometros,precioAerolineas,precioLatam,precioConDebitoAerolineas,
 								precioConDebitoLatam,precioConTarjetaAerolineas,
-								precioConTarjetaLatam,diferenciaDePrecio, precioPorKilometroLatam, precioPorKilometroAerolineas,
+								precioConTarjetaLatam,diferenciaDePrecio, precioPorKilometroLatam,precioPorKilometroAerolineas,
 								precioConBitCoinAerolineas, precioConBitCoinLatam);
 					}
 					else

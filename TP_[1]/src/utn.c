@@ -1,6 +1,7 @@
+
 #include <stdio.h>
 #include <stdlib.h>
-#include "Utn.h"
+#include "utn.h"
 
 int utn_getInt(int *pNumeroIngresado,char * mensaje,char * mensajeError,int minimo,int maximo,int reintentos)
 {

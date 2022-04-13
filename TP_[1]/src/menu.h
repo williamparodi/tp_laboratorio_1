@@ -13,7 +13,6 @@
 /// @brief Muestra por pantalla el menu de opciones con la carga actual de kilometros y precios
 void mostrarMenu(int kilometros,float precioAerolineas,float precioLatam);
 
-
 /// @param kilometros
 /// @param precioAerolineas
 /// @param precioLatam

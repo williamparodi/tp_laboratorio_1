@@ -1,7 +1,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "Menu.h"
+#include "menu.h"
 
 void mostrarMenu(int kilometros,float precioAerolineas,float precioLatam)
 {

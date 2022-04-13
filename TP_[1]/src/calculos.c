@@ -1,8 +1,9 @@
+#include "calculos.h"
+
 #include <stdio.h>
 #include <stdlib.h>
-#include "Calculos.h"
-#include "Utn.h"
-#include "Menu.h"
+#include "menu.h"
+#include "utn.h"
 
 int calcularPrecioPorKilometro(float precio,int kilometro,float *precioPorKilometro)
 {
