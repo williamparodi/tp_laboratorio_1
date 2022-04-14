@@ -90,6 +90,7 @@ int main(void)
 						calcularDiferencia(precioLatam,precioAerolineas,&diferenciaDePrecio);
 						calcularBitcoin(precioAerolineas,BITCOIN,&precioConBitCoinAerolineas);
 						calcularBitcoin(precioLatam,BITCOIN,&precioConBitCoinLatam);
+						printf("Calculos realizados correctamente!\n");
 						flagCalculos = 1;
 					}
 					else
@@ -102,7 +103,7 @@ int main(void)
 					{
 						mostrarPrecios(kilometros,precioAerolineas,precioLatam,precioConDebitoAerolineas,
 								precioConDebitoLatam,precioConTarjetaAerolineas,
-								precioConTarjetaLatam,diferenciaDePrecio, precioPorKilometroLatam,precioPorKilometroAerolineas,
+								precioConTarjetaLatam,diferenciaDePrecio,precioPorKilometroLatam,precioPorKilometroAerolineas,
 								precioConBitCoinAerolineas, precioConBitCoinLatam);
 					}
 					else
