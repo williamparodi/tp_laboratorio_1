@@ -29,6 +29,6 @@ void mostrarMenu(int kilometros,float precioAerolineas,float precioLatam);
 void mostrarPrecios(int kilometros,float precioAerolineas,float precioLatam,float precioDebitoAerolineas,float precioDebitoLatam,
 		float precioCreditoAerolineas,float precioCreditoLatam,float diferenciaPrecio,
 		float precioUnitarioLatam,float precioUnitarioAerolineas,
-		float precioConBitcoinAerolineas,float precioConBitcoinLatam);
+		double precioConBitcoinAerolineas,double precioConBitcoinLatam);
 
 #endif /* MENU_C_ */

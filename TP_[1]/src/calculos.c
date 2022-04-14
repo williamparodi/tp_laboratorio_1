@@ -1,5 +1,4 @@
 #include "calculos.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "menu.h"
@@ -77,15 +76,15 @@ int calcularDiferencia(float precio1,float precio2,float *diferencia)
     return retorno;
 }
 
-int calcularBitcoin(float precio,float bitcoin,float *precioBitcoin)
+int calcularBitcoin(float precio,float bitcoin,double *precioBitcoin)
 {
-	float auxPrecioBitCoin;
+	double auxPrecioBitCoin;
     int retorno;
     retorno = -1;
 
     if(precioBitcoin != NULL && precio > 0 && bitcoin > 0)
     {
-    	auxPrecioBitCoin = precio / bitcoin;
+    	auxPrecioBitCoin = (double)precio / bitcoin;
     	*precioBitcoin = auxPrecioBitCoin;
     	retorno = 0;
     }
@@ -105,10 +104,10 @@ int cargarForzado()
 	float precioConTarjetaLatam;
 	float precioPorKilometroLatam;
 	float precioPorKilometroAerolineas;
-	float precioConBitCoinAerolineas;
-	float precioConBitCoinLatam;
+	double precioConBitCoinAerolineas;
+	double precioConBitCoinLatam;
 	float diferenciaDePrecio;
-	float bitcoin;
+	double bitcoin;
 	int descuento;
 	int interes;
 

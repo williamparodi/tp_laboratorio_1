@@ -20,18 +20,18 @@ void mostrarMenu(int kilometros,float precioAerolineas,float precioLatam)
 
 void mostrarPrecios(int kilometros,float precioAerolineas,float precioLatam,float precioDebitoAerolineas,float precioDebitoLatam,
 		float precioCreditoAerolineas,float precioCreditoLatam,float diferenciaPrecio,float precioUnitarioLatam,float precioUnitarioAerolineas,
-		float precioConBitcoinAerolineas,float precioConBitcoinLatam)
+		double precioConBitcoinAerolineas,double precioConBitcoinLatam)
 {
 	printf("Kilometros Ingresados: %d km\n\n",kilometros);
 	printf("Precio Aerolineas: $%.2f\n",precioAerolineas);
 	printf("a) Precio con tarjeta de débito: $ %.2f\n",precioDebitoAerolineas);
 	printf("b) Precio con tarjeta de crédito: $ %.2f\n",precioCreditoAerolineas);
-	printf("c) Precio pagando con bitcoin :%f BTC\n",precioConBitcoinAerolineas);
+	printf("c) Precio pagando con bitcoin :%.10f BTC\n",precioConBitcoinAerolineas);
 	printf("d) Precio unitario:$ %.2f\n\n",precioUnitarioAerolineas);
 	printf("Precios Latam: $%.2f\n",precioLatam);
 	printf("a) Precio con tarjeta de débito:$ %.2f\n",precioDebitoLatam);
 	printf("b) Precio con tarjeta de crédito:$ %.2f\n",precioCreditoLatam);
-	printf("c) Precio pagando con bitcoin:%f BTC\n",precioConBitcoinLatam);
+	printf("c) Precio pagando con bitcoin:%.10f BTC\n",precioConBitcoinLatam);
 	printf("d) Precio unitario:$ %.2f\n\n",precioUnitarioLatam);
 	printf("La diferencia de precio es: $ %.2f\n\n",diferenciaPrecio);
 }

@@ -35,8 +35,8 @@ int main(void)
 	float precioConDebitoLatam;
 	float precioConTarjetaAerolineas;
 	float precioConTarjetaLatam;
-	float precioConBitCoinAerolineas;
-	float precioConBitCoinLatam;
+	double precioConBitCoinAerolineas;
+	double precioConBitCoinLatam;
 	float precioPorKilometroAerolineas;
 	float precioPorKilometroLatam;
 	float diferenciaDePrecio;
