@@ -1,7 +1,7 @@
 /*
  ============================================================================
  Name        : TP_[2].c
- Author      : 
+ Author      : Parodi Jon William
  Version     :
  Copyright   : Your copyright notice
  Description : Hello World in C, Ansi-style
