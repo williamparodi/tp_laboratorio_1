@@ -382,9 +382,9 @@ int sortPassengers(Passenger* list, int len, int order)
 
 int cargaForzada(Passenger list[],int len,Passenger listaForzada[],int lenForzado)
 {
-	int retorno;
+	int itsOk;
 	int index;
-	retorno= -1;
+	itsOk= -1;
 
 	if(listaForzada != NULL && len > 0 && list != NULL && lenForzado)
 	{
@@ -398,10 +398,10 @@ int cargaForzada(Passenger list[],int len,Passenger listaForzada[],int lenForzad
 				list[i].isEmpty = LLENO;
 				printOnePassenger(list[i]);
 			}
-			retorno = 0;
+			itsOk = 0;
 		}
 	}
-	return retorno;
+	return itsOk;
 }
 
 int sortPassengersBycode(Passenger* list, int len, int order)
@@ -431,9 +431,9 @@ int sortPassengersBycode(Passenger* list, int len, int order)
 
 int sortByCodeAndStatusDown(Passenger list[],int len)
 {
-	int retorno;
+	int itsOk;
 	int ordenOk;
-	retorno=-1;
+	itsOk=-1;
 	Passenger aux;
 
 	if (list != NULL && len > 0)
@@ -465,16 +465,16 @@ int sortByCodeAndStatusDown(Passenger list[],int len)
 				}
 			}
 		}while(ordenOk== 0);
-		retorno = 0;
+		itsOk = 0;
 	}
-	return retorno;
+	return itsOk;
 }
 
 int sortByCodeAndStatusUp(Passenger list[],int len)
 {
-	int retorno;
+	int itsOk;
 	int ordenOk;
-	retorno=-1;
+	itsOk=-1;
 	Passenger aux;
 
 	if (list != NULL && len > 0)
@@ -506,7 +506,8 @@ int sortByCodeAndStatusUp(Passenger list[],int len)
 				}
 			}
 		}while(ordenOk== 0);
-		retorno = 0;
+		itsOk = 0;
 	}
-	return retorno;
+	return itsOk;
 }
+

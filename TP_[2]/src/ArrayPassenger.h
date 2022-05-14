@@ -67,8 +67,12 @@ find a passenger] - (0) if Ok
 *
 */
 int removePassenger(Passenger* list, int len, int id);
+
 /**
- *
+ * \brief Find an empty space an return the index
+ * @param list Passenger
+ * @param len int
+ * @return int Return (-1) if Error or the index if OK
  */
 int findEmptyPlace(Passenger* list,int len);
 
@@ -91,25 +95,70 @@ int sortPassengers(Passenger* list, int len, int order);
 *
 */
 int printPassengers(Passenger* list, int length);
-int sortPassengersBycode(Passenger* list, int len, int order);
-int sortByCodeAndStatusDown(Passenger list[],int len);
-int sortByCodeAndStatusUp(Passenger list[],int len);
-int printOnlyAddedPassengers(Passenger list[],int len);
-void printOnePassenger(Passenger onePassenger);
+
 /** \brief Sort the elements in the array of passengers, the argument order
 indicate UP or DOWN order
 *
 * \param list Passenger*
 * \param len int
 * \param order int [1] indicate UP - [0] indicate DOWN
-* \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if O
-*
+\return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
 */
+int sortPassengersBycode(Passenger* list, int len, int order);
+
+/**\brief Sort the elements in the array of passengers, the criteria is alphabetical order
+ * (form z - a) and if are the same, the order will be by numerical order(more -less)
+ * @param list
+ * @param len
+ * @return  int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ */
+int sortByCodeAndStatusDown(Passenger list[],int len);
+
+/***
+ * brief Sort the elements in the array of passengers, the criteria is alphabetical order
+ * (form a - z) and if are the same, the order will be by numerical order(less - more)
+ * @param list
+ * @param len
+ * @return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ */
+int sortByCodeAndStatusUp(Passenger list[],int len);
+/***
+ * brief print only the added Passenger on the array
+ * @param list
+ * @param len
+ * @return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ */
+int printOnlyAddedPassengers(Passenger list[],int len);
+/***
+ * brief print one passenger
+ * @param onePassenger
+ */
+void printOnePassenger(Passenger onePassenger);
+
+/***
+ * brief
+ * @param list
+ * @param len
+ * @param listaForzada
+ * @param lenForzado
+ * @return
+ */
 int cargaForzada(Passenger list[],int len,Passenger listaForzada[],int lenForzado);
 
-/*
- *
+/***
+ * brief it gives the option to change the different items of the passenger,
+ * it find it by ID
+ * @param list
+ * @param len
+ * @param id
+ * @return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int modPassenger(Passenger list[],int len,int id);
+/***
+ * brief Search in the array a place whith data , if it find it, return 1
+ * @param list
+ * @param len
+ * @return int Return (0) or  [Invalid length or NULL pointer] - 1 if it find  Ok
+ */
 int isNotEmpty(Passenger list[],int len);
 #endif /* ARRAYPASSENGER_H_ */

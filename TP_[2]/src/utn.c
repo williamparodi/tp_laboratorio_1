@@ -52,11 +52,11 @@ int esNumero(char cadena[],int limite)
 {
 	int retorno;
 	int i;
-	retorno = -1;// error
+	retorno = -1;
 
 	if(cadena != NULL && limite >0)
 	{
-		retorno = 1; //verdadero
+		retorno = 1;
 		for(i=0;i<limite && cadena[i] != '\0';i++)
 		{
 			if(i==0 && (cadena[i] == '-' || cadena[i] == '+'))
