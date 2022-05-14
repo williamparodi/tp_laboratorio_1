@@ -5,7 +5,7 @@
 
 void menuPassenger()
 {
-	printf("----------Menu de Pasajeros-----------\n\n");
+	printf("\n----------Menu de Pasajeros-----------\n\n");
 	printf("1-Altas\n");
 	printf("2-Modificar\n");
 	printf("3-Baja\n");

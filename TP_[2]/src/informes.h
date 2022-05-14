@@ -17,7 +17,13 @@ int sortByLastNameAndTypeDown(Passenger list[],int len);
  * @return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int sortByLastNameAndTypeUp(Passenger list[],int len);
-
+/***
+ * brief print only the passenger with status flight Activo
+ * @param list
+ * @param length
+ * @return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ */
+int printPassengersByCodeaAndActive(Passenger* list, int length);
 /***
  * Accumulate the price of the array list
  * @param list

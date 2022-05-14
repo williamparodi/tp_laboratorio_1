@@ -174,4 +174,25 @@ void printPriceAverageTotal(float totalPrice, float averagePrice, int countAbove
 	printf("Cantidad de vuelos por arriba del precio promedio : %d\n",countAboveAverage);
 }
 
+int printPassengersByCodeaAndActive(Passenger* list, int length)
+{
+	int itsOk;
+	itsOk= -1;
+	if(list != NULL && length >0)
+	{
+		printf("--------------------------Pasajeros con estado de vuelo Activo ----------------------------------\n");
+		printf("Id   Nombre   	      Apellido       Precio     Codigo de Vuelo    Clase         Estado de vuelo \n");
+		printf("-------------------------------------------------------------------------------------------------\n");
+		for(int i=0;i<length;i++)
+		{
+			if(list[i].isEmpty==0 && list[i].statusFlight==ACTIVO)
+			{
+				printOnePassenger(list[i]);
+			}
+		}
+		itsOk=0;
+
+	}
+	return itsOk;
+}
 

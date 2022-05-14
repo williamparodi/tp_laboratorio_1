@@ -53,7 +53,8 @@ lastName[],float price,int typePassenger, char flycode[])
 				if(!utn_getNombreCompleto(aux.name,"Ingrese nombre del pasajero:\n","Error,solo letras\n",50,5)&&
 					!utn_getNombreCompleto(aux.lastName,"Ingrese apellido del pasajero:\n","Error,solo letras\n",50,5)&&
 					!utn_getFloat(&aux.price,"Ingrese Precio de Vuelo:\n","Error, solo precios mayores a 10000\n",1000,1000000,5)&&
-					!utn_getFlyCode(aux.flycode,"Ingrese el codigo de vuelo:\n","Error,codigo invalido\n",7,5) &&
+					!utn_getFlyCode(aux.flycode,"Ingrese el codigo de vuelo:\n",
+							"Error,el codigo tiene 3 letras iniciales y hasta 4 numeros(Ejemplo ARD0013)\n",7,5) &&
 					!utn_getInt(&aux.typePassenger,
 							"Ingrese la clase:\n "
 							"1-Primera clase\n "
@@ -363,7 +364,7 @@ int sortPassengers(Passenger* list, int len, int order)
 	{
 		if(isNotEmpty(list,len))
 		{
-			if(!utn_getInt(&order,"Ingrese orden: 1-Ascendente o 2- Descendente","Error,opcion invalida",1,2,5))
+			if(!utn_getInt(&order,"Ingrese orden por apellido: 1-Ascendente o 2- Descendente\n","Error,opcion invalida\n",1,2,5))
 			{
 				if(order==2)
 				{
@@ -412,7 +413,7 @@ int sortPassengersBycode(Passenger* list, int len, int order)
 	{
 		if(isNotEmpty(list,len))
 		{
-			if(!utn_getInt(&order,"Ingrese orden: 1-Ascendente o 2- Descendente","Error,opcion invalida",1,2,5))
+			if(!utn_getInt(&order,"Ingrese orden por codigo: 1-Ascendente o 2- Descendente\n","Error,opcion invalida\n",1,2,5))
 			{
 				if(order==2)
 				{

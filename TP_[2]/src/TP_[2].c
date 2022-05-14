@@ -107,7 +107,7 @@ int main(void)
 						calculateAboveAveragePrice(list,LEN,averagePrice,&countAbovePrice);
 						printPriceAverageTotal(priceAccumulator,averagePrice,countAbovePrice);
 						sortPassengersBycode(list,LEN,order);
-						printPassengers(list,LEN);
+						printPassengersByCodeaAndActive(list,LEN);
 					}
 					else
 					{
