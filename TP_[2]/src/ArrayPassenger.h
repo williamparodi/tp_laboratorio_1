@@ -16,6 +16,7 @@ typedef struct
 	float price;
 	char flycode[10];
 	int typePassenger;
+	int statusFlight;
 	int isEmpty;
 }Passenger;
 
@@ -90,7 +91,9 @@ int sortPassengers(Passenger* list, int len, int order);
 *
 */
 int printPassengers(Passenger* list, int length);
-int sortPassengers(Passenger* list, int len, int order);
+int sortPassengersBycode(Passenger* list, int len, int order);
+int sortByCodeAndStatusDown(Passenger list[],int len);
+int sortByCodeAndStatusUp(Passenger list[],int len);
 int printOnlyAddedPassengers(Passenger list[],int len);
 void printOnePassenger(Passenger onePassenger);
 /** \brief Sort the elements in the array of passengers, the argument order
@@ -103,8 +106,10 @@ indicate UP or DOWN order
 *
 */
 int cargaForzada(Passenger list[],int len,Passenger listaForzada[],int lenForzado);
+
+/*
+ *
+ */
 int modPassenger(Passenger list[],int len,int id);
 int isNotEmpty(Passenger list[],int len);
-
-
 #endif /* ARRAYPASSENGER_H_ */

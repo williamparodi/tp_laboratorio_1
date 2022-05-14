@@ -6,6 +6,7 @@
 #include "ArrayPassenger.h"
 #include "menu.h"
 #include "informes.h"
+#define ACTIVO 1
 
 int sortByLastNameAndTypeDown(Passenger list[],int len)
 {
@@ -172,6 +173,5 @@ void printPriceAverageTotal(float totalPrice, float averagePrice, int countAbove
 	printf("Precio de vuelo promedio : %.2f\n",averagePrice);
 	printf("Cantidad de vuelos por arriba del precio promedio : %d\n",countAboveAverage);
 }
-
 
 

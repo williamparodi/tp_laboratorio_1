@@ -34,11 +34,11 @@ int main(void)
 	int order=0;
 	Passenger list[LEN];
 	Passenger listaForzada[LEN_FORZADO]={
-			{1001,"Roberto","Bolaneos",32424.323,"qwe9888",1},
-			{1002,"Luis Alberto","Benitez",15506.551,"awr1234",2},
-			{1003,"Mariela Paula","Alvarez",45544.55,"wer3456",3},
-			{1004,"Juana","Pereyra",15515.56,"plf5678",1},
-			{1005,"Alan Mauro","Ortuza",98844.323,"yhh5666",3}};
+			{1001,"Roberto","Bolaneos",32424.323,"qwe9888",1,2},
+			{1002,"Luis Alberto","Benitez",15506.551,"awr1234",2,3},
+			{1003,"Mariela Paula","Alvarez",45544.55,"wer3456",3,1},
+			{1004,"Juana","Pereyra",15515.56,"plf5678",1,2},
+			{1005,"Alan Mauro","Ortuza",98844.323,"qwe9888",3,1}};
 
 	if(initPassengers(list,LEN))
 	{
@@ -106,6 +106,8 @@ int main(void)
 						calculateAveragePrice(priceAccumulator,count,&averagePrice);
 						calculateAboveAveragePrice(list,LEN,averagePrice,&countAbovePrice);
 						printPriceAverageTotal(priceAccumulator,averagePrice,countAbovePrice);
+						sortPassengersBycode(list,LEN,order);
+						printPassengers(list,LEN);
 					}
 					else
 					{

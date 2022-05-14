@@ -8,7 +8,12 @@
 #include "informes.h"
 #define VACIO 1
 #define LLENO 0
-
+#define PRIMERA  1
+#define EJECUTIVO 2
+#define TURISTA 3
+#define ACTIVO 1
+#define CANCELADO 2
+#define DEMORADO 3
 
 int static incrementaId()
 {
@@ -54,8 +59,14 @@ lastName[],float price,int typePassenger, char flycode[])
 							"1-Primera clase\n "
 							"2-Ejecutivo\n "
 							"3-Turista\n",
-							"Error,clase incorrecta",1,3,5))
+							"Error,clase incorrecta",1,3,5) &&
+					!utn_getInt(&aux.statusFlight,
+							"Ingrese estado de vuelo:\n "
+							"1-ACTIVO\n "
+							"2-DEMORADO\n "
+							"3-CANCELADO\n","Error,estado erroneo\n",1,3,5))
 				{
+
 					aux.id = incrementaId();
 					aux.isEmpty=LLENO;
 					list[index] = aux;
@@ -68,38 +79,6 @@ lastName[],float price,int typePassenger, char flycode[])
 	return itsOk;
 }
 
-/*
-int addPassenger(Passenger* list, int len)
-{
-	int itsOk;
-	int index;
-	itsOk = -1;
-	if(list != NULL && len > 0)
-	{
-		index = findEmptyPlace(list,len);
-		if(index != -1)
-		{
-			if(!utn_getNombreCompleto(list[index].name,"Ingrese nombre del pasajero:\n","Error,solo letras\n",50,5)&&
-				!utn_getNombreCompleto(list[index].lastName,"Ingrese apellido del pasajero:\n","Error,solo letras\n",50,5)&&
-				!utn_getFloat(&list[index].price,"Ingrese Precio de Vuelo:\n","Error, solo precios mayores a 10000\n",1000,1000000,5)&&
-				!utn_getFlyCode(list[index].flycode,"Ingrese el codigo de vuelo:\n","Error,codigo invalido\n",7,5) &&
-				!utn_getInt(&list[index].typePassenger,
-						"Ingrese la clase:\n "
-						"1-Primera clase\n "
-						"2-Ejecutivo\n "
-						"3-Turista\n",
-						"Error,clase incorrecta",1,3,5))
-			{
-				list[index].id = incrementaId();
-				list[index].isEmpty=LLENO;
-				printOnePassenger(list[index]);
-				itsOk=0;
-			}
-		}
-	}
-	return itsOk;
-}
-*/
 int modPassenger(Passenger list[],int len,int id)
 {
 	int itsOk;
@@ -250,8 +229,9 @@ int removePassenger(Passenger* list, int len, int id)
 	{
 		if(isNotEmpty(list,len))
 		{
-			printf("--------Baja Empleado ----------\n");
-			printf("Id  Nombre            Apellido        Precio     Codigo de vuelo  Clase\n");
+			printf("-----------------------------Baja--de--Pasajero----------------------------------------------------\n");
+			printf("Id   Nombre   	      Apellido       Precio     Codigo de Vuelo    Clase         Estado de vuelo \n");
+			printf("-------------------------------------------------------------------------------------------------\n");
 			printOnlyAddedPassengers(list,len);
 			if(!utn_getInt(&id,"\nIngrese el id del pasajero a borrar:\n","Error,id incorrecto\n",1000,2000,5))
 			{
@@ -281,12 +261,39 @@ int removePassenger(Passenger* list, int len, int id)
 
 void printOnePassenger(Passenger onePassenger)
 {
-	printf("%d %-15s  %-10s    %-5.2f    %-10s    %8d \n",
+	char auxType[50];
+	char auxStatus[50];
+	switch(onePassenger.typePassenger)
+	{
+		case PRIMERA:
+			strcpy(auxType,"PRIMERA");
+			break;
+		case EJECUTIVO:
+			strcpy(auxType,"EJECUTIVO");
+			break;
+		case TURISTA:
+			strcpy(auxType,"TURISTA");
+			break;
+	}
+	switch(onePassenger.statusFlight)
+	{
+		case ACTIVO:
+			strcpy(auxStatus,"ACTIVO");
+			break;
+		case DEMORADO:
+			strcpy(auxStatus,"DEMORADO");
+			break;
+		case CANCELADO:
+			strcpy(auxStatus,"CANCELADO");
+			break;
+	}
+	printf("%d %-15s  %-10s    %-5.2f    %-15s    %-15s    %-8s\n",
 			onePassenger.id,onePassenger.name,
 			onePassenger.lastName,
 			onePassenger.price,
 			onePassenger.flycode,
-			onePassenger.typePassenger);
+			auxType,
+			auxStatus);
 }
 
 int printPassengers(Passenger* list, int length)
@@ -295,9 +302,9 @@ int printPassengers(Passenger* list, int length)
 	itsOk= -1;
 	if(list != NULL && length >0)
 	{
-		printf("-----------------------Pasajeros-----------------------------------------\n");
-		printf("Id   Nombre   	      Apellido       Precio     Codigo de Vuelo    Clase\n");
-		printf("--------------------------------------------------------------------------\n");
+		printf("------------------------------------Pasajeros----------------------------------------------------\n");
+		printf("Id   Nombre   	      Apellido       Precio     Codigo de Vuelo    Clase         Estado de vuelo \n");
+		printf("-------------------------------------------------------------------------------------------------\n");
 		for(int i=0;i<length;i++)
 		{
 			if(list[i].isEmpty==LLENO)
@@ -358,7 +365,7 @@ int sortPassengers(Passenger* list, int len, int order)
 		{
 			if(!utn_getInt(&order,"Ingrese orden: 1-Ascendente o 2- Descendente","Error,opcion invalida",1,2,5))
 			{
-				if(order==1)
+				if(order==2)
 				{
 					sortByLastNameAndTypeDown(list,len);
 				}
@@ -399,8 +406,107 @@ int cargaForzada(Passenger list[],int len,Passenger listaForzada[],int lenForzad
 
 int sortPassengersBycode(Passenger* list, int len, int order)
 {
-	return 0;
+	int itsOk;
+	itsOk=-1;
+	if(list != NULL && len >0)
+	{
+		if(isNotEmpty(list,len))
+		{
+			if(!utn_getInt(&order,"Ingrese orden: 1-Ascendente o 2- Descendente","Error,opcion invalida",1,2,5))
+			{
+				if(order==2)
+				{
+					sortByCodeAndStatusDown(list, len);
+				}
+				else
+				{
+					sortByCodeAndStatusUp(list,len);
+				}
+				itsOk=0;
+			}
+		}
+	}
+	return itsOk;
 }
 
+int sortByCodeAndStatusDown(Passenger list[],int len)
+{
+	int retorno;
+	int ordenOk;
+	retorno=-1;
+	Passenger aux;
 
+	if (list != NULL && len > 0)
+	{
+		do
+		{
+			ordenOk = 1;
+			len--;
+			for (int i=0;i<len;i++)
+			{
+				if(strcmp(list[i].flycode,list[i + 1].flycode)< 0)
+				{
+					aux = list[i];
+					list[i] = list[i + 1];
+					list[i + 1] = aux;
+					ordenOk = 0;
+				}
+				else
+				{
+					if(strcmp(list[i].flycode,list[i + 1].flycode)==0
+							&& (list[i].typePassenger
+									< list[i + 1].typePassenger))
+					{
+						aux = list[i];
+						list[i] = list[i + 1];
+						list[i + 1] = aux;
+						ordenOk = 0;
+					}
+				}
+			}
+		}while(ordenOk== 0);
+		retorno = 0;
+	}
+	return retorno;
+}
 
+int sortByCodeAndStatusUp(Passenger list[],int len)
+{
+	int retorno;
+	int ordenOk;
+	retorno=-1;
+	Passenger aux;
+
+	if (list != NULL && len > 0)
+	{
+		do
+		{
+			ordenOk = 1;
+			len--;
+			for (int i=0;i<len;i++)
+			{
+				if(strcmp(list[i].flycode,list[i + 1].flycode)> 0)
+				{
+					aux = list[i];
+					list[i] = list[i + 1];
+					list[i + 1] = aux;
+					ordenOk = 0;
+				}
+				else
+				{
+					if(strcmp(list[i].flycode,list[i + 1].flycode)==0
+							&& (list[i].typePassenger
+									< list[i + 1].typePassenger))
+					{
+						aux = list[i];
+						list[i] = list[i + 1];
+						list[i + 1] = aux;
+						ordenOk = 0;
+					}
+				}
+			}
+		}while(ordenOk== 0);
+		retorno = 0;
+	}
+	return retorno;
+}
