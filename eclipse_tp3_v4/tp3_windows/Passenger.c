@@ -358,21 +358,6 @@ int Passenger_showListPassenger(Passenger** arrayPassenger,int len)
 		for(int i=0;i < len;i++)
 		{
 			Passenger_showOnePassenger(*(arrayPassenger + i));
-			//Passenger_printOneWith(*(arrayPassenger + i));
-		}
-		itsOk = 0;
-	}
-	return itsOk;
-}
-
-int Passenger_initArrayPPassenger(Passenger** arrayPPassenger, int len)
-{
-	int itsOk = -1;
-	if(arrayPPassenger != NULL && len >0)
-	{
-		for(int i = 0;i < len; i++)
-		{
-			*(arrayPPassenger + i) = NULL;
 		}
 		itsOk = 0;
 	}
@@ -397,23 +382,7 @@ Passenger* Passenger_newParametros(int id,char* nombre,char* apellido,float prec
 	return newPassengerParam;
 }
 
-int Passenger_findEmpty(Passenger** arrayPassenger,int len)
-{
-	int index = -1;
 
-	if(arrayPassenger != NULL && len >0)
-	{
-		for(int i=0;i<len;i++)
-		{
-			if(*(arrayPassenger + i)==NULL)
-			{
-				index = i;
-				break;
-			}
-		}
-	}
-	return index;
-}
 
 Passenger* Passenger_searchPassengerById(LinkedList* arrayPassenger,int idIngresado)
 {
