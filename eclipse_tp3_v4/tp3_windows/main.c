@@ -39,6 +39,7 @@ int main()
 					if(!controller_loadFromText("data.csv",listaPasajeros))
 					{
 						printf("Datos cargados con exito\n");
+						cantidadPasajeros = ll_len(listaPasajeros);
 					}
 					else
 					{
@@ -49,6 +50,7 @@ int main()
 					if(!controller_loadFromBinary("data.bin",listaPasajeros))
 					{
 						printf("Datos cargados con exito\n");
+						cantidadPasajeros = ll_len(listaPasajeros);
 					}
 					else
 					{
@@ -59,6 +61,7 @@ int main()
 					if(!controller_addPassenger(listaPasajeros))
 					{
 						printf("Alta de pasajero exitosa!\n");
+						cantidadPasajeros = ll_len(listaPasajeros);
 					}
 					else
 					{
@@ -66,22 +69,29 @@ int main()
 					}
 					break;
 				case 4:
-					if(!controller_editPassenger(listaPasajeros))
+					if(cantidadPasajeros >0)
 					{
-						printf("Modificacion exitosa!\n");
+						if(!controller_editPassenger(listaPasajeros))
+						{
+							printf("Modificacion exitosa!\n");
+						}
+						else
+						{
+							printf("Error al modificar\n");
+						}
 					}
 					else
 					{
-						printf("Error al modificar\n");
+						printf("Primero deberia dar de alta Pasajeros\n");
 					}
 					break;
 				case 5:
-					cantidadPasajeros = ll_len(listaPasajeros);
 					if(cantidadPasajeros >0)
 					{
 						if(!controller_removePassenger(listaPasajeros))
 						{
 							printf("Baja con exito\n");
+							cantidadPasajeros = ll_len(listaPasajeros);
 						}
 						else
 						{
@@ -94,43 +104,71 @@ int main()
 					}
 					break;
 				case 6:
-					if(!controller_ListPassenger(listaPasajeros))
+					if(cantidadPasajeros >0)
 					{
-						printf("Listado exitoso\n");
+						if(!controller_ListPassenger(listaPasajeros))
+						{
+							printf("Listado exitoso\n");
+						}
+						else
+						{
+							printf("Error, al mostrar listado\n");
+						}
 					}
 					else
 					{
-						printf("Error, al mostrar listado\n");
+						printf("Primero deberia dar de alta pasajeros\n");
 					}
 					break;
 				case 7:
-					if(!controller_sortPassenger(listaPasajeros))
+					if(cantidadPasajeros >0)
 					{
-						printf("Sort con exito\n");
+						if(!controller_sortPassenger(listaPasajeros))
+						{
+							printf("Sort con exito\n");
+						}
+						else
+						{
+							printf("Error al ordenar\n");
+						}
 					}
 					else
 					{
-						printf("Error al ordenar\n");
+						printf("Primero deberia dar de alta pasajeros\n");
 					}
 					break;
 				case 8:
-					if(!controller_saveAsText("data.csv",listaPasajeros))
+					if(cantidadPasajeros >0)
 					{
-						printf("Se guardo con exito\n");
+						if(!controller_saveAsText("data.csv",listaPasajeros))
+						{
+							printf("Se guardo con exito\n");
+						}
+						else
+						{
+							printf("Error al guardar el archivo\n");
+						}
 					}
 					else
 					{
-						printf("Error al guardar el archivo\n");
+						printf("No hay datos cargados\n");
 					}
 					break;
 				case 9:
-					if(!controller_saveAsBinary("data.bin",listaPasajeros))
+					if(cantidadPasajeros >0)
 					{
-						printf("Guardado exitoso\n");
+						if(!controller_saveAsBinary("data.bin",listaPasajeros))
+						{
+							printf("Guardado exitoso\n");
+						}
+						else
+						{
+							printf("Error al guardar\n");
+						}
 					}
 					else
 					{
-						printf("Error al guardar\n");
+						printf("No hay datos guardados\n");
 					}
 					break;
 				case 10:
