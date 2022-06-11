@@ -14,7 +14,7 @@
 #define BUFFER 1000
 int static incrementaId()
 {
-	static int id = 1;
+	static int id = 1000;
 	id++;
 	return id;
 }

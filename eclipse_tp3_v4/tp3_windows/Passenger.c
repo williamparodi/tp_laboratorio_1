@@ -288,8 +288,7 @@ int Passenger_showOnePassenger(Passenger* pOnePassenger)
 	{
 		printf("%d,%s,%s,%.2f,%s,%d,%d\n",
 						auxId,auxNombre,auxApellido,auxPrecio,auxCodigoDeVuelo,auxTipoDePasajero,auxEstadoVuelo);
-	/*	printf("Id: %d , Nombre: %s, Apellido %s, Precio %.2f,Codigo de Vuelo %s, Tipo %d, Estado de Vuelo %d\n",
-				auxId,auxNombre,auxApellido,auxPrecio,auxCodigoDeVuelo,auxTipoDePasajero,auxEstadoVuelo);*/
+
 		itsOk = 0;
 	}
 	return itsOk;
