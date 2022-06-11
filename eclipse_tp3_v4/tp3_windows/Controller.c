@@ -81,7 +81,7 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListPassenger)
  * \return int
  *
  */
-int controller_addPassenger(LinkedList* pArrayListPassenger) //Se tiene q modificar llamar Passengeradd
+int controller_addPassenger(LinkedList* pArrayListPassenger)
 {
 	Passenger* newPassenger=NULL;
 	int itsOk = -1;
@@ -423,7 +423,7 @@ int controller_saveAsText(char* path , LinkedList* pArrayListPassenger)
 	return itsOk;
 }
 
-/** \brief Guarda los datos de los pasajeros en el archivo data.csv (modo binario).
+/** \brief Guarda los datos de los pasajeros en el archivo data.bin (modo binario).
  *
  * \param path char*
  * \param pArrayListPassenger LinkedList*

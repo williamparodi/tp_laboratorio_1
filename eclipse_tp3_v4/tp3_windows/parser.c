@@ -39,7 +39,7 @@ int parser_PassengerFromText(FILE* pFile , LinkedList* pArrayListPassenger)
     return itsOk;
 }
 
-/** \brief Parsea los datos los datos de los pasajeros desde el archivo data.csv (modo binario).
+/** \brief Parsea los datos los datos de los pasajeros desde el archivo data.bin (modo binario).
  *
  * \param path char*
  * \param pArrayListPassenger LinkedList*
