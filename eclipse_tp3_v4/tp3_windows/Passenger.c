@@ -5,7 +5,7 @@
 #include "Controller.h"
 #include "Passenger.h"
 #include "utn.h"
-#define LIMITE_NOMBRE 50
+#define LIMITE_NOMBRE 100
 #define LIMITE_CODIGO 10
 #define LIMITE_ID 10
 #define PRIMERA  1
