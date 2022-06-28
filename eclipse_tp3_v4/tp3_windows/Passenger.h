@@ -245,4 +245,32 @@ int Passenger_tomaDeDatoTipo(char* tipoPasajero);
  */
 int Passenger_tomaDeDatoEstado(char* estadoVuelo);
 
+/**
+ * brief Da de alta un pasajero y lo agrega a la lista
+ * @param pArrayListPassenger
+ * @return -1 en caso de error o 0 en caso exito
+ */
+int Passenger_addPassenger(LinkedList* pArrayListPassenger);
+
+/**
+ * brief Modifica el dato elejido del pasajero
+ * @param pArrayListPassenger
+ * @return -1 en caso de error o 0 en caso exito
+ */
+int Passenger_modPassenger(LinkedList* pArrayListPassenger);
+
+/**
+ * brief Da de baja un pasajero y lo borra de la lista
+ * @param pArrayListPassenger
+ * @return -1 en caso de error o 0 en caso exito
+ */
+int Passenger_removePassenger(LinkedList* pArrayListPassenger);
+
+/**
+ * brief Toma el dato del id en la lista y retorna el ultimo
+ * @param pArrayPassenger
+ * @return el id maximo
+ */
+int Passenger_idSiguiente(LinkedList* pArrayPassenger);
+
 #endif /* PASSENGER_H_ */

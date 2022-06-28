@@ -26,9 +26,9 @@ int main()
 {
 	setbuf(stdout,NULL);
     int option=0;
-    int cantidadPasajeros=0;
-
+    int flag=0;
     LinkedList* listaPasajeros = ll_newLinkedList();
+
     do{
     	menuPassenger();
     	if(!utn_getInt(&option,"Ingrese una opcion:","Error,opcion invalida\n",1,10,5))
@@ -36,32 +36,46 @@ int main()
     		switch(option)
 			{
 				case 1:
-					if(!controller_loadFromText("data.csv",listaPasajeros))
+					if(!flag)
 					{
-						printf("Datos cargados con exito\n");
-						cantidadPasajeros = ll_len(listaPasajeros);
+						if(!controller_loadFromText("data.csv",listaPasajeros))
+						{
+							printf("Datos cargados con exito\n");
+							flag=1;
+						}
+						else
+						{
+							printf("Error al cargar los datos\n");
+						}
 					}
 					else
 					{
-						printf("Error al cargar los datos\n");
+						printf("Error,ya se cargo un archivo\n");
 					}
 					break;
 				case 2:
-					if(!controller_loadFromBinary("data.bin",listaPasajeros))
+					if(!flag)
 					{
-						printf("Datos cargados con exito\n");
-						cantidadPasajeros = ll_len(listaPasajeros);
+						if(!controller_loadFromBinary("data.bin",listaPasajeros))
+						{
+							printf("Datos cargados con exito\n");
+							flag = 1;
+						}
+						else
+						{
+							printf("Error al cargar los datos\n");
+						}
 					}
 					else
 					{
-						printf("Error al cargar los datos\n");
+						printf("Error,ya se cargo un archivo\n");
 					}
 					break;
 				case 3:
 					if(!controller_addPassenger(listaPasajeros))
 					{
 						printf("Alta de pasajero exitosa!\n");
-						cantidadPasajeros = ll_len(listaPasajeros);
+
 					}
 					else
 					{
@@ -69,7 +83,7 @@ int main()
 					}
 					break;
 				case 4:
-					if(cantidadPasajeros >0)
+					if(!ll_isEmpty(listaPasajeros))
 					{
 						if(!controller_editPassenger(listaPasajeros))
 						{
@@ -86,12 +100,11 @@ int main()
 					}
 					break;
 				case 5:
-					if(cantidadPasajeros >0)
+					if(!ll_isEmpty(listaPasajeros))
 					{
 						if(!controller_removePassenger(listaPasajeros))
 						{
 							printf("Baja con exito\n");
-							cantidadPasajeros = ll_len(listaPasajeros);
 						}
 						else
 						{
@@ -104,7 +117,7 @@ int main()
 					}
 					break;
 				case 6:
-					if(cantidadPasajeros >0)
+					if(!ll_isEmpty(listaPasajeros))
 					{
 						if(!controller_ListPassenger(listaPasajeros))
 						{
@@ -121,7 +134,7 @@ int main()
 					}
 					break;
 				case 7:
-					if(cantidadPasajeros >0)
+					if(!ll_isEmpty(listaPasajeros))
 					{
 						if(!controller_sortPassenger(listaPasajeros))
 						{
@@ -138,7 +151,7 @@ int main()
 					}
 					break;
 				case 8:
-					if(cantidadPasajeros >0)
+					if(!ll_isEmpty(listaPasajeros))
 					{
 						if(!controller_saveAsText("data.csv",listaPasajeros))
 						{
@@ -155,7 +168,7 @@ int main()
 					}
 					break;
 				case 9:
-					if(cantidadPasajeros >0)
+					if(!ll_isEmpty(listaPasajeros))
 					{
 						if(!controller_saveAsBinary("data.bin",listaPasajeros))
 						{
@@ -179,6 +192,7 @@ int main()
     	}
     }while(option != 10);
 
+    ll_deleteLinkedList(listaPasajeros);
     return 0;
 }
 
