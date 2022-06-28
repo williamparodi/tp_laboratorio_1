@@ -27,6 +27,7 @@ int main()
 	setbuf(stdout,NULL);
     int option=0;
     int flag=0;
+
     LinkedList* listaPasajeros = ll_newLinkedList();
 
     do{
@@ -75,7 +76,6 @@ int main()
 					if(!controller_addPassenger(listaPasajeros))
 					{
 						printf("Alta de pasajero exitosa!\n");
-
 					}
 					else
 					{

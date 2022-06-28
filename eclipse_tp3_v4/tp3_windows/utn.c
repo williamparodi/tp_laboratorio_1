@@ -323,7 +323,7 @@ int utn_getFlyCode(char pFlyCodeIngresado[],char * mensaje,char * mensajeError,i
 		{
 			printf("%s",mensaje);
 			if(myGets(aux,limite) == 0 &&
-					esCodigoVuelo(aux,limite)==1)
+					esCodigoVuelo(aux,limite)==1 && strlen(aux) >1)
 			{
 				strcpy(pFlyCodeIngresado,aux);
 				retorno = 0;

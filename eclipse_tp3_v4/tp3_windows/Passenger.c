@@ -18,15 +18,6 @@
 #define DEMORADO 3
 
 
-int static incrementaId()
-{
-	static int id = 0;
-	//static int id = 1000;
-	id++;
-	return id;
-}
-
-
 Passenger* Passenger_new()
 {
 	Passenger * newPassenger;
@@ -229,28 +220,6 @@ int Passenger_setIdTxt(Passenger* this,char* id)
 	if(this != NULL && id != NULL && esNumero(id,2000))
 	{
 		this->id= atoi(id);
-		itsOk=0;
-	}
-	return itsOk;
-}
-
-int Passenger_setIdTxt2(Passenger* this,char* id)
-{
-	int itsOk = -1;
-	int auxId = atoi(id);
-	static int nextId = 0;
-	if(this != NULL && id != NULL)
-	{
-		if(auxId == 1)
-		{
-			nextId++;
-			this->id= nextId;
-		}
-		else if(auxId>nextId)
-		{
-			nextId = auxId;
-			this->id = nextId;
-		}
 		itsOk=0;
 	}
 	return itsOk;
@@ -548,7 +517,9 @@ int Passenger_addPassenger(LinkedList* pArrayListPassenger)
 						"\n","Error,estado erroneo\n",1,3,5))
 		{
 			auxId = Passenger_idSiguiente(pArrayListPassenger);
+			Passenger_leeUltimoId("ultimoId.csv",&auxId);
 			auxId++;
+			Passenger_salvaTxtUltimoId("ultimoId.csv",auxId);
 			newPassenger = Passenger_newParametros(auxId, auxNombre, auxApellido, auxPrecio, auxTipo, auxCodigo,auxEstado);
 		}
 		if(newPassenger != NULL)
@@ -710,6 +681,10 @@ int Passenger_removePassenger(LinkedList* pArrayListPassenger)
 					}
 				}
 			}
+			else
+			{
+				printf("No existe ese id\n");
+			}
 		}
 	}
 	return itsOk;
@@ -737,3 +712,55 @@ int Passenger_idSiguiente(LinkedList* pArrayPassenger)
 	}
 	return maximo;
 }
+
+int Passenger_salvaTxtUltimoId(char* path ,int ultimoId)
+{
+
+	int itsOk=-1;
+	FILE* pFile;
+
+	if(path != NULL)
+	{
+		pFile=fopen(path,"w");
+
+		if(pFile != NULL)
+		{
+			fprintf(pFile,"%d,\n",ultimoId);
+		}
+		itsOk = 0;
+	}
+	fclose(pFile);
+
+	return itsOk;
+}
+
+int Passenger_leeUltimoId(char* path,int* id)
+{
+	int retorno = -1;
+	FILE* pFile;
+	char auxId[100];
+	int cantidad;
+
+	if(path != NULL && id != NULL)
+	{
+		pFile= fopen(path,"r");
+		do
+		{
+			cantidad= fscanf(pFile,"%[^,]",auxId);
+			if(cantidad != 1)
+			{
+				break;
+			}
+
+			*id = atoi(auxId);
+
+		}while(!feof(pFile));
+		retorno=0;
+	}
+	fclose(pFile);
+
+	return retorno;
+}
+
+
+

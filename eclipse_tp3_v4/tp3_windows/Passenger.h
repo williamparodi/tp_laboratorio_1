@@ -272,5 +272,18 @@ int Passenger_removePassenger(LinkedList* pArrayListPassenger);
  * @return el id maximo
  */
 int Passenger_idSiguiente(LinkedList* pArrayPassenger);
-
+/**
+ * brief Gurada en un archivo el ultimo id
+ * @param path
+ * @param ultimoId
+ * @return 0 en caso de exito o -1 en caso de error
+ */
+int Passenger_salvaTxtUltimoId(char* path ,int ultimoId);
+/**
+ *
+ * @param path
+ * @param id
+ * @return
+ */
+int Passenger_leeUltimoId(char* path,int* id);
 #endif /* PASSENGER_H_ */
