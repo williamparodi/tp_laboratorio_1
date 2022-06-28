@@ -102,6 +102,7 @@ int esLetra(char cadena[],int limite)
 {
 	int retorno;
 	retorno = -1;
+
 	if(cadena != NULL && limite >0)
 	{
 		retorno=1;
@@ -198,9 +199,13 @@ int utn_getString(char pStringIngresado[],char * mensaje,char * mensajeError,int
 			if(myGets(aux,limite) == 0 &&
 					esLetra(aux,limite)==1)
 			{
-				strncpy(pStringIngresado,aux,limite);
-				retorno = 0;
-				break;
+				if(strlen(aux)>1)
+				{
+					strncpy(pStringIngresado,aux,limite);
+					retorno = 0;
+					break;
+				}
+
 			}
 			else
 			{
@@ -269,7 +274,7 @@ int utn_getNombreCompleto(char pStringIngresado[],char * mensaje,char * mensajeE
         	printf("%s",mensaje);
 			if(myGets(aux,limite) == 0 &&
 				pasarMayusculaPrimerCaracter(aux) &&
-				esLetraConEspacio(aux,limite)==1)
+				esLetraConEspacio(aux,limite)==1 && strlen(aux)>1)
 			{
 				strncpy(pStringIngresado,aux,limite);
 				retorno = 0;
